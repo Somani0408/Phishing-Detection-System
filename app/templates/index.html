@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛡️ Phishing Detection System</h1>
+            <p class="subtitle">AI-Powered URL and Email Phishing Detection</p>
+        </header>
+
+        <main>
+            <div class="detection-card">
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="url">URL Detection</button>
+                    <button class="tab-button" data-tab="email">Email Detection</button>
+                </div>
+
+                <div class="tab-content active" id="url-tab">
+                    <div class="input-group">
+                        <label for="url-input">Enter URL to analyze:</label>
+                        <input 
+                            type="text" 
+                            id="url-input" 
+                            placeholder="https://example.com or example.com"
+                            autocomplete="off"
+                        >
+                        <button id="url-submit" class="submit-btn">Analyze URL</button>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="email-tab">
+                    <div class="input-group">
+                        <label for="email-input">Enter email text to analyze:</label>
+                        <textarea 
+                            id="email-input" 
+                            placeholder="Paste email content here..."
+                            rows="6"
+                        ></textarea>
+                        <button id="email-submit" class="submit-btn">Analyze Email</button>
+                    </div>
+                </div>
+
+                <div id="result-container" class="result-container hidden">
+                    <div id="result-content"></div>
+                </div>
+
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Analyzing...</p>
+                </div>
+
+                <div id="error-container" class="error-container hidden">
+                    <p id="error-message"></p>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2>How It Works</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>🔍 Feature Extraction</h3>
+                        <p>Extracts 30+ features from URLs and emails including domain characteristics, URL structure, and suspicious patterns.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🤖 Machine Learning</h3>
+                        <p>Uses trained ML models (XGBoost, Random Forest, Logistic Regression) to classify inputs as phishing or legitimate.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>📊 Confidence Score</h3>
+                        <p>Provides a confidence score indicating how certain the model is about its prediction.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Phishing Detection System | Built with Flask & Machine Learning</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
